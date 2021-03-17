@@ -6,15 +6,14 @@ install_requirements:
 	@pip install -r requirements.txt
 
 check_code:
-	@flake8 scripts/* quote/*.py
+	@flake8 scripts/* bbquote/*.py
 
 black:
-	@black scripts/* quote/*.py
+	@black scripts/* bbquote/*.py
 
 test:
-	#@coverage run -m pytest tests/*.py
 	@coverage run -m pytest $(filter-out test/__init__.py, $(test/*.py))
-	@coverage report -m --omit="${VIRTUAL_ENV}/lib/python*"
+	@coverage report -m --omit=$(VIRTUAL_ENV)/lib/python*
 
 ftest:
 	@Write me
@@ -24,8 +23,8 @@ clean:
 	@rm -f .coverage
 	@rm -fr */__pycache__ */*.pyc __pycache__
 	@rm -fr build dist
-	@rm -fr quote-*.dist-info
-	@rm -fr quote.egg-info
+	@rm -fr bbquote-*.dist-info
+	@rm -fr bbquote.egg-info
 
 install:
 	@pip install . -U
@@ -52,12 +51,11 @@ count_lines:
 # ----------------------------------
 #      UPLOAD PACKAGE TO PYPI
 # ----------------------------------
-PYPI_USERNAME=<AUTHOR>
 build:
 	@python setup.py sdist bdist_wheel
 
 pypi_test:
-	@twine upload -r testpypi dist/* -u $(PYPI_USERNAME)
+	@twine upload -r testpypi dist/* -u lologibus2
 
 pypi:
-	@twine upload dist/* -u $(PYPI_USERNAME)
+	@twine upload dist/* -u lologibus2
