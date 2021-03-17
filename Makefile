@@ -1,3 +1,4 @@
+HEROKU_EMAIL_ADDRESS=kalilou.cisse.250@gmail.com
 # ----------------------------------
 #          INSTALL & TEST
 # ----------------------------------
