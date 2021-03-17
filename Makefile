@@ -11,7 +11,8 @@ black:
 	@black scripts/* quote/*.py
 
 test:
-	@coverage run -m pytest tests/*.py
+	#@coverage run -m pytest tests/*.py
+	@coverage run -m pytest $(filter-out test/__init__.py, $(test/*.py))
 	@coverage report -m --omit="${VIRTUAL_ENV}/lib/python*"
 
 ftest:
