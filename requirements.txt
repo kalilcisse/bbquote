@@ -13,3 +13,4 @@ yapf
 
 #web
 streamlit
+memoized-property
